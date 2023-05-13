@@ -1,0 +1,12 @@
+/*
+display myname, lastname, a number input by user
+*/
+
+// declare a variable
+string myname
+string lastname
+number aNum
+
+print myname
+print lastname
+print aNum

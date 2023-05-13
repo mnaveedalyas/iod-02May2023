@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Excercise for module 1 - 1</title>
+    </head>
+    <body>
+        <script>
+            function callMyScript(){
+                alert('Hello from JavaScript!    '+ (10 * 4)  );
+            }
+        </script>
+        <h1>CSS/HTML - inline style</h1>
+        <div style=" border: 10px solid rgb(33, 61, 200);
+              margin: 1rem;
+                padding: 2rem 2rem;
+                text-align: center; " >
+            <div style="display: inline-block;
+                    border: 5px solid red;
+                    padding: 1rem 1rem;
+                    vertical-align: middle;
+                    width: 120px; 
+                    height:300px;">
+                <h3>division 1</h3> 
+                <p id="p1">testing paragraph1</p>
+                <button onclick="callMyScript()">Click Me</button>
+            </div>
+            <div style="display: inline-block;
+                    border: 5px solid green;
+                    padding: 1rem 1rem;
+                    vertical-align: middle;
+                    width: 120px; 
+                    height:300px;">
+                <h3>division 2</h3>
+                <p id="p2">testing paragraph2</p>
+            </div>
+            <div style="display: inline-block;
+                    border: 1px solid yellow;
+                    padding: 1rem 1rem;
+                    vertical-align: middle;
+                    width: 120px; 
+                    height:300px;">
+                <h3>division 3</h3>
+                <p>testing paragraph</p>
+            </div>
+            <div style="display: inline-block;
+                    border: 1px solid pink;
+                    padding: 1rem 1rem;
+                    vertical-align: middle;
+                    width: 120px; 
+                    height:300px;">
+                <h3>division 4</h3>
+                <p id="mypara"> </p>
+                <span id="myspan"> </span>
+            </div>
+        </div>
+        <script>
+            document.getElementById("mypara").innerHTML = "New text!";
+            document.getElementById("myspan").innerText = "&&&&&&&&" ;
+        </script>
+    </body>
+</html>

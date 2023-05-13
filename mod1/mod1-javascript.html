@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Excercise for module 1 - 1</title>
+    </head>
+    <body>
+        <script>
+            alert('Hello from JavaScript!   test pull command');
+
+            function getSum(num1, num2){
+                console.log('num1 inside function: ', num1);
+                console.log('num2 inside function: ', num2);
+                if (num1 == undefined) num1 = 0;
+                if (num2 == undefined) num2 = 0;
+
+                return (num1 + num2);
+            }
+
+            function callMyScript(){
+                let num1 = 10;
+                console.log('num1: ', num1);
+                let num2;
+                console.log('num2: ', num2);
+                let sum = getSum(num1, num2);
+                console.info('Sum of two numbers is: ', sum);
+                let prod = num1 * num2;
+                console.info('Product of two numbers is '+ prod  );
+
+                //console.warn('it is warning ');
+                //console.error('it is error ');
+
+
+            }
+        </script>
+        <h1>CSS/HTML - inline style</h1>
+        <div style=" border: 10px solid rgb(33, 61, 200);
+              margin: 1rem;
+                padding: 2rem 2rem;
+                text-align: center; " >
+            <div style="display: inline-block;
+                    border: 5px solid red;
+                    padding: 1rem 1rem;
+                    vertical-align: middle;
+                    width: 120px; 
+                    height:300px;">
+                <h3>division 1</h3> 
+                <p id="p1">testing paragraph1</p>
+                <button onclick="callMyScript()">Click Me Test</button>
+            </div>
+            <div style="display: inline-block;
+                    border: 1px solid pink;
+                    padding: 1rem 1rem;
+                    vertical-align: middle;
+                    width: 120px; 
+                    height:300px;">
+                <h3>division 4</h3>
+                <p id="mypara"> </p>
+                <span id="myspan"> </span>
+            </div>
+        </div>
+        <script>
+            document.getElementById("mypara").innerHTML = "New text development";
+            document.getElementById("myspan").innerText = "&&&&&&&&" ;
+        </script>
+    </body>
+</html>
