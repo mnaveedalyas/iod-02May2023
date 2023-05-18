@@ -3,10 +3,11 @@
     <body>
         <h2>HTML Forms</h2>
         <!-- If you click the "Submit" button, the form-data will be sent to a page called "/action_page". -->
-        <form action="/action_page">
+        <form action="/action_page" method="POST">
             <label for="firstName">First name:
                 <input type="text" id="firstName" name="firstName" value="Joel">
-            
+            </label>
+
             <br />
             <label for="lastName">Last name:
                 <input type="text" id="lastName" name="lastName" value="Doe">
@@ -47,8 +48,8 @@
             <label for="City"> Select City: 
                 <select name="City">
                     <option value="Auckland">Auckland</option>
-                    <option value="Auckland">Hamilton</option>
-                    <option value="Auckland">Wellington</option>
+                    <option value="Hamilton">Hamilton</option>
+                    <option value="Wellington">Wellington</option>
                 </select>
             </label>
             <br />
