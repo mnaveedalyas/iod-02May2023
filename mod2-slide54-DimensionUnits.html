@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<!-- 
+% – The % unit is used to set the font-size relative to the current font-size. 
+em – It is used to set the relative size. It is relative to the font-size of the element. 
+Note: Here 2em meaning 2times the size of current font. 
+EM is relative to the parent element’s font size, so if you wish to scale the element’s size based on its parent’s size, use EM.
+
+
+rem – Relative to the browser base font-size. 
+REM is relative to the root (HTML) font size, so if you wish to scale the element’s size based on the root size, no matter what the parent size is, use REM. If you’ve used EM and are finding sizing issues due to lots of nested elements, REM will probably be the better choice.
+
+px – It defines the font-size in terms of pixels. (96px = 1in)
+vh – Relative to 1% of the height of the viewport. 
+vw – Relative to 1% of the width of the viewport. 
+
+Let’s consider an example of a mobile screen viewport that is 480px x 800px.
+
+1 VW = 1% of the viewport’s width (or 4.8px)
+50 VW = 50% of the viewport’s width (or 240px)
+
+1 VH = 1% of the viewport’s height (or 8px)
+50 VH = 50% of the viewport’s height (or 400px)
+ -->
+<head>
+	<style>
+		.box {
+			background: red;
+			border: 1px solid black;
+			margin: 10px;
+		}
+		.parent {
+			background: white;
+			border: 1px solid black;
+		}
+		.fifty-percent {
+			width: 50%;
+		}
+		.one-hundred {
+			width: 100px;
+		}
+		.parent {
+			width: 250px;
+			;
+		}
+	</style>
+</head>
+<body>
+	<h3>Output-1 </h3>
+	<div class="box fifty-percent">50%</div>
+	<div class="box one-hundred">100px</div>
+	<hr>
+	<h3>Output-2 </h3>
+	<div class="parent">
+		<div class="box fifty-percent">50%</div>
+		<div class="box one-hundred">100px</div>
+	</div>
+</body>
+
+</html>
