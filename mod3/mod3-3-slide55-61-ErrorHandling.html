@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        button {
+            margin: 5px;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScripts Advance - Part 3</title>
+</head>
+<body>
+    <h1>Error Handling,  Try/Catch</h1>
+
+    <div class="row">
+        <div class="col"><button onclick="testTryCatch()">Try/Catch/Finally</button></div>
+        
+        
+    </div>
+    <script>
+        function testTryCatch(){
+            console.clear();
+            try{
+                console.log("i am in try block")
+                throw "ErrorCode-2322";
+                console.log("i am at end of try block")
+            }catch (err){
+                console.log("Some errors : "+err)
+                console.log("err.message : "+err.message)
+            }finally{
+                console.log("i am in finally block")
+            }
+            console.log('---------------------');
+
+            const json = '{ "age" : 30, "name": "naveed" }';
+            try{
+                const user = JSON.parse(json);
+                if (!user.name){
+                    throw new SyntaxError("Incomplete data: no name ");
+                }
+                console.log("user.name: "+user.name);
+            }catch(err){
+                console.log("JSON Error: "+ err.message);
+            }finally{
+                console.log(" Stopping application ");
+            }
+
+        }
+
+
+
+        
+    </script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        button {
+            margin: 5px;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScripts Advance - Part 3</title>
+</head>
+<body>
+    <h1>Promise, Async/Await</h1>
+
+
+    
+
+    <div class="row">
+        <div class="col"><button onclick="testCallback()">CallBack</button></div>
+        <div class="col"><button onclick="PromiseThen()">Promise, then</button></div>
+        <div class="col"><button onclick="PromiseCatch()">Promise, catch</button></div>
+        <div class="col"><button onclick="PromiseChain()">Promise Chain </button></div>
+        <div class="col"><button onclick="awaitPromiseChain()">async / await 1 </button></div>
+        <div class="col"><button onclick="testAsyncAwait()">async / await 2</button></div>
+        
+
+    </div>
+    <script>
+        function testCallback(){
+            console.clear()
+            
+            function calledbackfun(param){
+                console.log("call back function is executed with param:"+param);
+            }
+
+            function executeClock(processNo, delayTime, callback) {
+                setTimeout( ()=>{
+                    console.log("-------------------------------");
+                    console.log("I am inside executeClock :"+processNo);
+                    calcResult = parseInt(processNo)+100;
+                    if (callback){
+                        callback(calcResult);
+                    }
+                        
+                }, delayTime, processNo)
+            }
+            
+            executeClock(4, 1000, calledbackfun);
+            executeClock(5, 2000, calledbackfun);
+            executeClock(6, 3000);
+
+            
+            let paramVal = 0;
+            executeClock(11, 5000, function(paramVal){
+                //console.log("-------------------------------");
+                paramVal = paramVal + 200;
+                console.log("I am inside callback "+paramVal);
+                
+                executeClock(12, 2000, function(paramVal){
+                    paramVal = paramVal + 200;
+                    console.log("I am inside callback "+paramVal);
+                    
+                    executeClock(13, 5000, (paramVal) =>{
+                        paramVal = paramVal + 200;
+                        console.log("I am inside callback "+paramVal);
+                        
+                    });
+
+                });
+            });
+            
+        }
+
+        
+
+        function PromiseThen(){
+            console.clear()
+            let promise1 = new Promise(function(resolve, reject) {
+                
+                setTimeout(() => {
+                    console.log('----------1-----------');
+                    resolve("success")
+                    reject("test");
+                }, 1000);
+            });
+
+            promise1.then(
+                result => console.log("result of promise 1: "+ result), // doesn't run
+                error => console.log("error of promise 1: "+ error)
+            )
+
+            let promise2 = new Promise(function(resolve, reject) {
+                setTimeout(() => {
+                    console.log('---------2------------');
+                    reject(new Error("Whoops!"))
+                }, 800);
+            });
+
+            promise2.then( 
+                result => console.log("result of promise 2: "+ result), // doesn't run
+                error => console.log("error of promise 2: "+ error)
+            )
+
+            let promise3 = new Promise(function(resolve, reject) {
+                setTimeout(() => {
+                    console.log('---------3------------');
+                    resolve("success")
+                }, 3000);
+            }).then(
+                result => console.log("result of promise 3: "+ result), 
+                error => console.log("error of promise 3: "+ error) // doesn't run
+
+            );
+
+            let promise4 = new Promise(function(resolve, reject) {
+                setTimeout(() => {
+                    console.log('---------4------------');
+                    resolve("success")
+                }, 3000);
+            }).then(
+                result => {
+                    console.log("result of promise 4: "+ result)
+                    let promise5 = new Promise((resolve, reject) => {
+                        setTimeout(() => {
+                            console.log('---------5------------');
+                            resolve("success 5")
+                        }, 2000);
+                    }).then(
+                        result => console.log("result of promise 5: "+ result), 
+                        error => console.log("error of promise 5: "+ error) // doesn't run  
+                    )
+                }
+                , 
+                error => console.log("error of promise 4: "+ error)
+
+            );
+        }
+
+        function PromiseCatch(){
+            console.clear()
+
+            const promise = new Promise((resolve, reject) => {
+                 throw 'Uh-oh!';
+            });
+            promise.catch((error) => {
+                console.error('Error in Promise : '+error);
+            });
+
+
+            let promise1 = new Promise(function(resolve, reject) {
+                
+                setTimeout(() => {
+                    console.log('----------1-----------');
+                    resolve("success")
+                }, 1000);
+            });
+
+            promise1.finally(() => {
+                console.log("finally of promise 1 ");
+            })
+
+            promise1.then(
+                result => console.log("result of promise 1: "+ result), // doesn't run
+                error => console.log("error of promise 1: "+ error)
+            )
+
+            let promise2 = new Promise(function(resolve, reject) {
+                setTimeout(() => {
+                    console.log('---------2------------');
+                    reject(new Error("Whoops!"))
+                }, 2000);
+            });
+            promise2.catch((e) => {
+                console.error("catch --> of promise 2: "+e.message);
+            });
+            promise2.then(
+                result => console.log("then --> result of promise 2: "+ result), // doesn't run
+                error => console.log("then --> error of promise 2: "+ error)
+            )
+            
+            promise2.finally(() => {
+                console.log("finally --> of promise 2");
+            })
+        }
+
+        function PromiseChain(){
+            console.clear()
+            let calc = 10;
+            
+            setTimeout( () => {
+                calc = 10;
+                
+            }, 1000);
+            
+            calc = calc*2;  
+            calc = calc*2;
+            calc = calc*2;
+            console.log("Calc without promise :"+calc);
+            console.log('---------------------');
+
+            const promise = new Promise((resolve, reject) => {
+                console.log('---------0------------');
+                 setTimeout( () => resolve(10), 1000);
+            }).then( (result) => {
+                console.log('---------1------------');
+                return result * 2 ; 
+            }).then ( (result) => {
+                console.log('---------2------------');
+                return result * 2 ; 
+            }).then ( (result) => {
+                console.log('---------3------------');
+                calc = result * 2;
+                return calc;
+            });
+            promise.finally(() => {
+                console.log("finally --> of promise :"+calc);
+            })
+            
+        }
+        
+        async function awaitPromiseChain(){
+            console.clear()
+            let calc = 0;
+           
+            const promise = new Promise((resolve, reject) => {
+                console.log('---------0------------');
+                 setTimeout( () => resolve(10), 1000);
+            }).then( (result) => {
+                console.log('---------1------------');
+                return result * 2 ; 
+            }).then ( (result) => {
+                console.log('---------2------------');
+                return result * 2 ; 
+            }).then ( (result) => {
+                console.log('---------3------------');
+                return result * 2;
+            });
+            
+            let presult  = await promise;
+            console.log("result of promise :"+presult);
+            
+        }
+
+        function testAsyncAwait(){
+            console.clear()
+            async function myfunc(){
+                console.log(" in progress .... ");
+                const promise = new Promise((resolve, reject) => {
+                    setTimeout(()=>{
+                        console.log("inside promise");
+                        resolve ("done");
+                    }, 2000)
+                })
+
+                const result = await promise;
+                console.log("final result: "+result);
+            }
+            myfunc();
+        }
+
+    </script>
+
+</body>
+</html>

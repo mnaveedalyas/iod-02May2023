@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScripts Fundamentals</title>
+</head>
+<body>
+    <h1>JavaScripts Object & Symbol Data Type</h1>
+
+ 
+    <br><button onclick="test_objectType()">Object</button>
+    <script>
+
+        function test_objectType(){
+            console.clear();
+
+            /*
+            let student1_firstName = 'alyas';
+            let student1_lastName = 'name';
+            let _age1 = 40;
+            let student1_Tel = '234323 street';
+            let student1_streetAddress = '134 streeta';
+            let student1_city = 'hamilton';
+            
+            let student2_firstName = 'alyas';
+            let student2_lastName = 'name';
+            let student2_age = 40;
+            let student2_Tel = '234323 street';
+            let student2_streetAddress = '134 streeta';
+            let student2_city = 'hamilton';
+            
+            let student3_firstName = 'alyas';
+            let student3_lastName = 'name'
+            let student3_age = 40
+            let student3_Tel = '234323 street';
+            let student3_streetAddress = '134 streeta';
+            let student3_city = 'hamilton';
+            */            
+            
+
+            let student1 = {
+                firstName : 'alyas',
+                lastName : 'name',
+                age : 40,
+                Tel : '234323 street',
+                streetAddress : '134 streeta', 
+                city : 'hamilton',
+            };
+
+            let student2 = {
+                firstName : 'alyas', lastName : 'name', age : 40,
+                Tel : '234323 street',
+                streetAddress : '134 streeta',
+                city : 'hamilton'
+            };
+
+            let student3 = {
+                firstName : 'alyas',
+                lastName : 'name',
+                age : 40,
+                Tel : '234323 street',
+                streetAddress : '134 streeta',
+                city : 'hamilton',
+                isFemale : true
+            }
+            let listOfValues = ['Hamilton', 'Auckland', 'Wellington', 12, 567, true, false, student1, student2, student3]
+
+            //console.log(student.firstName);
+
+
+            let person = {
+                first_name: "Dave",
+                last_name: "hayman",
+                age: 30,
+            };
+            console.log("1- person : "+ person);
+            console.log("1- person : "+ JSON.stringify(person));
+            console.log("1- person.first_name :"+ person.first_name);
+            console.log("1- person.last_name :"+ person.last_name);
+
+            console.log("1- person.age :"+ person["age"]);
+            
+
+            console.log("--------------------------------");
+            person.first_name = 'naveed';
+            person.last_name = 'alyas';
+            person.age = 45;
+            // using for...in
+            for (let property in person) {
+                console.log("2- person."+property +" --> "+person[property]);
+            
+            }
+            console.log("--------------------------------");
+            person = {
+                first_name: "derek",
+                last_name: "david",
+                age: 30,
+                passTest: true
+            };
+            for (let key in person) {
+                console.log("3- person."+key +" --> "+person[key]);
+            }
+            console.log("--------------------------------");
+
+            /*
+            let count = 0 ;
+            console.log(count++);
+            console.log(count++);
+            console.log(count++);
+            console.log(count++);
+            console.log(count++);
+            console.log(count++);
+            console.log(count++);
+            console.log(count++);
+            console.log(count++);
+            console.log(count++);
+            console.log(count++);
+            console.log(count++);
+            */
+            
+            for (let count=0;       count < 50;        count++){
+
+                console.log(count);
+            
+            }
+            
+            let count = 0;
+
+            while (count < 12){
+            
+                console.log(count);
+                count ++;
+            
+            }
+
+
+
+            
+        
+        }
+
+        
+    </script>
+
+    <br><button onclick="test_symbolType()">Test Symbol</button>
+    <script>
+
+        function test_symbolType(){
+            console.clear();
+            const x = Symbol();
+            console.log(x);
+            console.log('typeof x: '+ typeof x);
+
+            console.log("--------------------------------");
+            const y = Symbol("it is test");
+            console.log(y);
+            
+            console.log("y : "+y.toString());
+            console.log("y.description : "+y.description);
+            console.log("y.toString() : "+y.toString());
+            console.log(Symbol() == Symbol());
+
+            console.log("--------------------------------");
+            let id = Symbol("id");
+            let person = {
+                name: "David",
+                age: 30,
+                [id]: 10
+            };
+            console.log("person : "+ person);
+            console.log("person.toString() : "+ person.toString());
+            console.log("person : "+ JSON.stringify(person));
+            console.log("person[id] :"+ person[id]);
+            // using for...in
+            console.log("--------------------------------");
+            for (let key in person) {
+                //console.log(key);
+                console.log("person."+key +" --> "+person[key]);
+            }
+            console.log("--------------------------------");
+          
+        }
+    </script>
+
+</body>
+</html>
