@@ -24,42 +24,96 @@
             let age1 = 20;
             let age2 = 30;
             
-            let status  = checkAge(age);
-            console.log('person is '+status);
             console.log('----------------------');
-            checkAge(age);
+            
+            let personinfo  = checkAge(age);
+            console.log('person is '+personinfo);
+            console.log('----------------------');
+            
+            let agestatus = checkAge(age1);
+            console.log('person is '+agestatus);
+
+            console.log('----------------------');
+
+            console.log('----------------------');
+            let anum = 45; 
+            console.log('sum of 2 & 5 is '+add_numbers(2, 5));
+            console.log('----------------------');
+            console.log('sum of 2  is '+add_numbers(2));
+            console.log('----------------------');
+            console.log('sum   is '+add_numbers());
+            console.log('----------------------');
+            
+            console.log('sum of is '+add_numbers);
+
+            console.log('----------------------');
+            displayMessage();
+            console.log('----------------------');
         }
+
+        function add_numbers(number1, number2){
+            return (number1 + number2);
+        }
+            
         function checkAge(age){
             console.log('age to check : '+age);
             
             let status = ''; 
+            /*
             if (age >= 18){
                 status = 'adult';
             }else{
                 status =  'non-adult';
-            }
-
-            //status =  age >= 18 ? 'adult' : 'non-adult';
-
+            }*/
+            status =  age >= 18 ? 'adult' : 'non-adult';
             return status;
-            
         }
+
+        
+
+        function displayMessage(){
+            console.log('test message is displayed')
+        }
+
+
     </script>
     <br><button onclick="testFuncAsExp()">Func as Expression</button>
     <script>    
         function testFuncAsExp(){
             console.clear();
 
-            const sayhi = function (){
+            let anum = 23;
+            let sString = 'Naveed Alyas';
+
+            let sayhi = function (){
                 console.log('Hello, i am testing it');
                 return 'TESTING';
             }
-            let test = sayhi;
-            sayhi();
-            test();
-            console.log("value of variable sayhi : "+sayhi);
+            
+            let sayhiString = "function (){ "+
+                " console.log('Hello, i am testing it'); "+
+                " return 'TESTING';"+
+            "}";
 
-            console.log("value of variable sayhi : "+sayhi());
+            console.log("------- 1 ---------- ");
+            console.log("value of anum : "+anum      );
+            console.log("value of sString : "+sString    );
+            console.log("value of sayhi : "+sayhi       );
+            console.log("value of sayhi : "+sayhiString       );
+
+            console.log("------- 2 ---------- ");
+            console.log("value of  sayhi() : "+sayhi()     );
+
+            //console.log("------- 2-1 ---------- ");
+            //console.log("value of  sayhiString() : "+sayhiString()     );
+            
+            console.log("------- 3 ---------- ");
+            sayhi();
+            console.log("------- 4 ---------- ");
+            let test = sayhi;
+            test();
+            console.log("------- 5 ---------- ");
+            
         }
     </script>
     <br><button onclick="testFuncHoist()">Func Hoist</button>
@@ -71,20 +125,24 @@
             let avar = 'it is test variable';
             console.log(avar);
 
-            console.log(avar1);
+            //console.log(avar1);
             let avar1 = 'it is test variable';
+            console.log(avar1);
             
 
             sayhi("naveed");
-            sayhi1EXP("naveed");
+            //sayhi1EXP("naveed");
 
             function sayhi(name){
                 console.log("Hello "+name+"!");
             }
+
+            
+
             sayhi1EXP = function  (name) {
                 console.log("Hello from expression: "+name+"!");
             }
-            //sayhi1EXP("naveed");
+            sayhi1EXP("naveed");
         }
 
         //sayhia("naveed");
@@ -102,6 +160,17 @@
     <br><button onclick="arrowFuncCall()">Arrow Func</button>
     <script> 
         
+        function Addition(a, b){
+            return (a + b)
+        }
+        multiplicationExp = function (a, b){
+            return ( a + b);
+        }
+
+        sum = (a, b) => a + b;
+        multiply = (a, b) => (a * b);
+
+
         function arrowFuncCall(){
             console.clear();
             sayhi("naveed");
@@ -110,14 +179,10 @@
         sayhi = (name) => {
             console.log("Hello from Arrow Function : "+name+"!");
             console.log('1- Sum of 3 , 5 ='+ sum(3, 5));
-            console.log('1- Addition of 3 , 5 ='+ Addition(3, 5));
             console.log('1- product of 3 , 5 ='+ multiply(3, 5));
-
-            let myadd = new Addition(3, 4);
-            console.log('myadd : '+ myadd);
+            console.log('1- Addition of 3 , 5 ='+ Addition(3, 5));
+            
             console.log('Addition : '+ Addition(3, 5));
-            let mymulti = new multiplicationExp(3, 5);
-            console.log('mymulti : '+ mymulti)
             console.log('multiplicationExp : '+ multiplicationExp(3,5))
 
         }
@@ -126,16 +191,7 @@
             return a+b;
         }
         */
-        sum = (a, b) => (a + b);
-        multiply = (a, b) => (a * b);
-
         
-        function Addition(a, b){
-            return (a + b)
-        }
-        multiplicationExp = function (a, b){
-            return ( a + b);
-        }
 
         
     </script>

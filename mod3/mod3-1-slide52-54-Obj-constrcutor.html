@@ -20,13 +20,25 @@
     function testConstructor(){
 
         const user1 = new User_Function("naveed", "alyas", 45);
+        const user11 = new User_Function("naveed", "alyas", 45);
+        
         const user2 = new User_Function("derek", "webb", 40);
         
+        const user4 = new User_Class("naveed", "alyas", 45, 1000);
+        const user5 = new User_Class("derek", "webb", 40);
+
+
         for (let key in user1) {
             //console.log(key);
             console.log("user1."+key +" : "+user1[key]);
         }
         console.log("user1.fullname :"+user1.fullname());
+        console.log("----------------------------------------");
+        for (let key in user11) {
+            //console.log(key);
+            console.log("user11."+key +" : "+user11[key]);
+        }
+        console.log("user11.fullname :"+user11.fullname());
         console.log("----------------------------------------");
         for (let key in user2) {
             //console.log(key);
