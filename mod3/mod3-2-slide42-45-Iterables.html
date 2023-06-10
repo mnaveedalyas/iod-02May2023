@@ -27,12 +27,6 @@
             let anameList = Array.from(aname);
             console.log(anameList);
 
-            
-            for(let count = 1;  count < myList.length; count++){
-
-                console.log(count+" -> "+myList[count])
-            
-            }
             console.log("---------------------------------- ")
             
             let itr = 1
@@ -40,8 +34,12 @@
                 console.log(itr+" -> "+myList[itr])
                 itr++
             }
-            console.log("---------------------------------- ");
+            for(let count = 1;  count < myList.length; count++){
+
+                console.log(count+" -> "+myList[count])
             
+            }
+            console.log("---------------------------------- ");
             myList.forEach((item) => {
                 console.log(item)
             })
@@ -55,27 +53,49 @@
             console.clear();
 
             let myNumberValues = [10,5,20, 10, 30, 25, 40,5, 50];
+            console.log('--------------1--------------');
             for (let num in myNumberValues){
                 console.log('a value for :'+num+" -> "+myNumberValues[num]);
             }
 
-            console.log('----------------------------');
+            console.log('--------------2--------------');
             for (let num of myNumberValues){
                 console.log('a value for :'+num+" -> ");
             }
 
-            console.log('----------------------------');
+            console.log('--------------3--------------');
+
+            let userObj = {
+                id : 1,
+                name: "myname",
+                age: 20,
+                favMeals: ['dairy', 'chicken', 'beef'],
+                3210: "postcode ",
+                //['we3', 'gt5']: "i am testing it"
+            }
+            for (let num in userObj){
+                console.log(num+" -> "+userObj[num]);
+            }
+            console.log('--------------4--------------');
+            let userArr = Array.from(Object.entries(userObj));
+            console.log("length of list : "+ userArr.length);
+            console.log("list : "+ userArr);
+            for (let num of userArr){
+                console.log(num+" -> "+userArr[num]);
+            }
+
+            console.log('--------------5--------------');
 
             const range1 = {
                 from: 1,
                 to: 5
             }
-            /*
-            for( let anum of range1){    
-                console.log(anum);    
-            } 
-            */
-            console.log('----------------------------');
+            
+            //for( let anum of range1){    
+            //    console.log(anum);    
+            //} 
+            
+            console.log('---------------6-------------');
 
             const range = {
                 from: 1,

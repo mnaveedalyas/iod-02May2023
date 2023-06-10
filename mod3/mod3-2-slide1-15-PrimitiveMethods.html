@@ -42,6 +42,26 @@
             
             console.log("\n---------------Test 3----------------");
 
+            const billion1 = 1000000000 // 9 zeros - hard toread
+            console.log(" 1000000000:  "+ billion1); 
+            const billion2 = 1_000_000_000 // easier to read, underscores ignored
+            console.log(" 1_000_000_000:  "+ billion2); 
+            const billion3 = 1e9 // exponential format
+            console.log(" 1e9:  "+ billion3); 
+            console.log(billion1 === billion2) // true
+            console.log(billion2 === billion3) // true
+
+            const microSecs1 = 0.000001 // 6 decimal places - hard to read
+            console.log(" 0.000001:  "+ microSecs1); 
+            const microSecs2 = 0.000_001 // easier to read, underscores ignored
+            console.log(" 0.000_001:  "+ microSecs2); 
+            const microSecs3 = 1.e-6 // exponential format
+            console.log(" 1.e-6:  "+ microSecs3); 
+            console.log(microSecs1 === microSecs2) // true
+            console.log(microSecs2 === microSecs3) // true
+
+            console.log("\n---------------Test 3-1----------------");
+
             let price = 300;
             // string like object
 
@@ -71,9 +91,9 @@
                     return this.name+": qty - "+this.qty+" and price - "+this.price;
                 }                
             }
-            console.log(" hockey.valueOf():  "+ hockey.valueOf()); 
             console.log(" hockey  "+ hockey  ); 
-
+            console.log(" hockey.valueOf():  "+ hockey.valueOf()); 
+            
             console.log( hockey  ); 
             
             console.log(" hockey.toString():  "+ hockey.toString()); 
@@ -106,7 +126,7 @@
             console.log("-------------------------------");
             console.log(" employee.toString(): "+ employee.toString());
             console.log(" employee.valueOf(): "+ (employee.valueOf()));
-            console.log(" employee*4: "+ employee*4);
+            console.log(" employee*4: "+ employee * 4);
 
 
             console.log("\n----------------Test 6---------------");
@@ -201,7 +221,7 @@
             console.log(" 1e500 : "+ (1e500));
             console.log(" 1e50 : "+ (1e50));
             console.log(" 1e5 : "+ (1e5));
-            console.log(" 0.1 + 0.2 : "+ (0.1+0.3));
+            console.log(" 0.1 + 0.2 : "+ (0.1+0.2));
             console.log(" 9999 9999 9999 9999 : "+ (9999999999999999));
 
             

@@ -50,15 +50,12 @@
             visitors.add({name:"gary", age: 20});
             visitors.add({name:"gary", age: 20});
             for( let entry of visitors){
-                console.log(entry +" \n\t-->"+ JSON.stringify(entry));
+                console.log(entry +" -->"+ JSON.stringify(entry));
             }
             console.log("size: "+visitors.size);
             console.log(" ----------- ");
             visitors.forEach((entry, entry2, visitors1) => {
-                console.log("entry: "+JSON.stringify(entry));
-                console.log("entry2: "+JSON.stringify(entry2));
-                console.log("visitors1: "+visitors1.size);
-                
+                console.log(""+JSON.stringify(entry)+" - "+JSON.stringify(entry2) +" - "+ visitors1.size);
             })
 
 

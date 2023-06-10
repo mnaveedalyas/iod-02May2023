@@ -29,7 +29,10 @@
                 age: 20,
                 favMeals: ['dairy', 'chicken', 'beef'],
                 vegi: vegies,
-                3210: "postcode "
+                3210: "postcode ",
+                "test": "testing",
+                true : "testing bolean key"
+                //['we3', 'gt5']: "i am testing it"
             }
             userObj.myinterest = "test";
 
@@ -42,19 +45,20 @@
             myMap.set('id' , 1);
             myMap.set('name', "myname");
             myMap.set('age', 20);
-            myMap.set(userObj, userObj);
+            myMap.set(userObj, {game: "hockey"});
             myMap.set(['we3', 'gt5'], "i am testing it");
             myMap.set(3210, "testing post code");
+            myMap.set("stringkey", "testing string");
+            myMap.set(true, "bolean key");
+            
             for( let key of myMap.keys()){
                 console.log(key+": "+myMap.get(key) +" -- "+ JSON.stringify(myMap.get(key)));
             }
-            console.log(" ---------------- ");
+            console.log(" --------0-------- ");
             console.log("myMap.has(userObj): "+myMap.has(userObj))
             console.log("myMap.has(3210): "+myMap.has(3210))
-            //console.log("myMap.get(3210): "+myMap.get(3210))
+            console.log("myMap.get(3210): "+myMap.get(3210))
             
-
-
             console.log(" -----2------- ");
 
             let myMap2 = new Map(Object.entries(userObj));
@@ -62,7 +66,6 @@
                 console.log(key+": "+myMap2.get(key) +" -- "+ JSON.stringify(myMap2.get(key)));
             }
             
-
             console.log(" -----3------- ");
 
             let userMap = new Map([
@@ -76,11 +79,11 @@
             ]);
             
             for( let key of userMap.keys()){
-                console.log(key+" -> "+userMap.get(key) +" \n\t-->"+ JSON.stringify(userMap.get(key)));
+                console.log(key+" -> "+userMap.get(key) +" -->"+ JSON.stringify(userMap.get(key)));
             }
             console.log(" -----3-1 ------- ");
             for( let entry of userMap){
-                console.log(entry +" \n\t-->"+ JSON.stringify(entry));
+                console.log(entry +" -->"+ JSON.stringify(entry));
             }
 
             console.log(" -----WeakMaps ------- ");

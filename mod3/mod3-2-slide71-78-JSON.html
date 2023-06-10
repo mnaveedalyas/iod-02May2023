@@ -38,7 +38,6 @@
 
            let room = {
             number: 23
-            
            };
            console.log(" ----------- ");
            let roomtest = room;
@@ -47,13 +46,12 @@
            let meetup = {
             title: "Conference",
             participants: ["mike", "david"]
-            
            };
 
            meetup.place = room;
-           //room.occupiedBy = meetup;
-           console.log(JSON.stringify(room));
-           console.log("meetup: "+JSON.stringify(meetup));
+           room.occupiedBy = meetup;
+           //console.log(JSON.stringify(room));
+           //console.log("meetup: "+JSON.stringify(meetup));
            console.log(" -------2---- ");
 
 
@@ -64,7 +62,7 @@
            console.log(" -----3------ ");
            let meetup1 = {
             title: "Conference",
-            participants: [ {name: "mike"}, {name: "david"}],
+            participants: [ "david", "mike"],
             place: room
            };
            room.occupiedBy = meetup1;
@@ -72,11 +70,8 @@
 
            console.log(" -----4------ ");
            let schedule = `{
-                
                 "meetups": [
-
                     {"title": "birthday", "date": "2022-08-13T12:00:00.000Z"},
-
                     {"title": "Party", "date": "2022-08-11T12:22:11.000Z"}
                 ]
            }`;
@@ -85,11 +80,18 @@
                 if (key === 'date'){
                     return new Date(value);
                 }
+                if (key == 'title'){
+                    return "*** "+value+"***";
+                }
+
                 return value;
            });
            console.log("Date of 1st MeetUp: "+schedule.meetups[0].date.getDate());
-           console.log("Date of 1st MeetUp: "+schedule.meetups[1].date.getDate());
-
+           console.log("Date of 1st MeetUp: "+schedule.meetups[0].title);
+           
+           console.log("Date of 2nd MeetUp: "+schedule.meetups[1].date.getDate());
+           console.log("Date of 2nd MeetUp: "+schedule.meetups[1].title);
+           
            console.log ( "11+12 1: "+ "11+12" );
            console.log ( "11+12 2: "+ "11"+"12" );
            console.log ( "11+12 3: "+ 11+12 );

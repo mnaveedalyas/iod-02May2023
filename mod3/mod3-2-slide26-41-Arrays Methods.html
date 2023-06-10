@@ -21,12 +21,14 @@
             console.log("----------- forEach Function ---------");
             let mylist = ["ab", "cdefrtr", "efgt", "gh", "ijsdff", "gh","klssd", "gh"];
             let count=0;
-
+            //let sum1 = 0;
             mylist.forEach( 
-                (element, index, list) => {
-                    console.log("item "+element+" is at index " +index+" in array ["+list+"]");
+                (avalue, pos, mylist) => {
+                    //sum1 = sum1 + avalue; 
+                    console.log("item "+avalue+" -- index " +pos+" -- total values :"+mylist.length);
                 }
             );
+            //console.log(sum1);
 
             console.log("----------- Find Function ---------");
             let myElement = mylist.find((element) => {return element == "gh"});
@@ -58,17 +60,20 @@
             console.log("myNumberValues.reverse(): "+myNumberValues1.reverse() );
 
             console.log("----------- Reduce Function ---------");
-            let sum = myNumberValues1.reduce( (sum, currentValue) => {return sum + currentValue } , 50);
+            let sum = myNumberValues1.reduce( 
+                    (sum, currentValue) => {return sum + currentValue } , 50
+                );
             console.log("sum: "+sum);
 
             console.log("----------- Other Iteration Function ---------");
-            let arrayLikeObject = { 0:1, 1:4, 2: 10, 3:5, 5:50, name:"naveed", age:30, length: 10}
+            let arrayLikeObject = { 0:2, 1:4, 2: 10, 3:5, 5:50, name:"naveed", age:30, length: 10}
             let result = Array.prototype.reduce.call(arrayLikeObject,  (sum, aValue) => {
-                console.log('aValue: '+aValue);
+                console.log('aValue: '+aValue+" --> sum :"+ (sum+aValue));
                 return sum+aValue 
             });
             console.log("Array.prototype.reduce.call : "+result);
             
+            console.log("----------- join Function ---------");
             let myNumberValues2 = [10,5,20, 10, 30, 25, 40,5, 50];
             console.log( "myNumberValues2 :"+ myNumberValues2);
             console.log( "myNumberValues2.toString() :"+ myNumberValues2.toString());
@@ -76,7 +81,7 @@
             console.log( "myNumberValues2.join(;) :"+ myNumberValues2.join(';'));
             console.log( "myNumberValues2.join(&) :"+ myNumberValues2.join(' & '));
             console.log( "myNumberValues2.join( ) :"+ myNumberValues2.join('    '));
-            
+            console.log("----------- custom Function ---------");
             console.log("Array.prototype.join.call : "+ displayAurgments('bc', 2, 4, 56, 'cf'));
 
         }
